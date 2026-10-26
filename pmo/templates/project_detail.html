@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="page-head"><h1>{{ project.name }}</h1><a class="btn" href="{{ url_for('project_list') }}">← 목록</a></div>
+<div class="page-head"><h1>{{ project.name }}</h1>
+  <div class="actions">
+    {% if can_manage %}<a class="btn" href="{{ url_for('project_settings', project_id=project.id) }}">설정 · 멤버</a>{% endif %}
+    <a class="btn" href="{{ url_for('project_list') }}">← 목록</a>
+  </div></div>
 <div class="card empty">진행 현황 화면(마일스톤 타임라인, 일감 보드, 변경 이력)은 제작 순서 3·7에서 채워집니다.</div>
 {% endblock %}

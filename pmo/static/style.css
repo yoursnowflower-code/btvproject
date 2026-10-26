@@ -46,3 +46,10 @@ dt{color:var(--ink-faint)}dd{margin:0}
 .user-pick label{display:flex;gap:10px;align-items:center;padding:10px 12px;border:1px solid var(--border);border-radius:8px;cursor:pointer}
 .user-pick label:has(input:checked){border-color:var(--accent);background:var(--accent-soft)}
 .user-pick span{display:flex;flex-direction:column}.user-pick small{color:var(--ink-faint)}
+.table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
+.table th{text-align:left;color:var(--ink-faint);font-weight:500;border-bottom:1px solid var(--border);padding:8px}
+.table td{border-bottom:1px solid var(--border);padding:10px 8px;vertical-align:middle}
+.table form{margin:0}.right{text-align:right}
+select{font:inherit;font-size:14px;padding:7px 9px;border:1px solid var(--border);border-radius:8px;background:var(--surface)}
+.add-member{display:flex;gap:8px;flex-wrap:wrap}.add-member select:first-child{flex:1;min-width:180px}
+.small{font-size:13px;margin:12px 0 0}
