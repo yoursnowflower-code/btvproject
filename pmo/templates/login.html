@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="login card">
+  <h1>PMO 일감 트래킹</h1>
+  <p class="muted">시제품 단계: 회사 계정(SSO) 대신 사용자를 골라 들어갑니다.</p>
+  <form method="post">
+    <div class="user-pick">
+    {% for u in users %}
+      <label><input type="radio" name="user_id" value="{{ u.id }}" {{ 'checked' if loop.first }}>
+        <span><b>{{ u.name }}</b><small>{{ u.org }}{% if u.is_admin %} · 시스템 관리자{% endif %}</small></span></label>
+    {% endfor %}
+    </div>
+    <button class="btn primary wide">로그인</button>
+  </form>
+</section>
+{% endblock %}
