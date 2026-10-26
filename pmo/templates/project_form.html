@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="page-head"><h1>{{ '프로젝트 수정' if project else '새 프로젝트' }}</h1></div>
+<form method="post" class="card form">
+  {% for e in errors %}<p class="error">{{ e }}</p>{% endfor %}
+  <label>프로젝트 이름 *<input name="name" value="{{ form.name or '' }}" required placeholder="예: B tv 5.6.2 정기배포"></label>
+  <label>연결할 버전<input name="version" value="{{ form.version or '' }}" placeholder="예: 5.6.2">
+    <small class="muted">엑셀의 마일스톤 version · 일감 request version과 맞춰 연결합니다 (11장 1번 기본안).</small></label>
+  <div class="two">
+    <label>시작일<input type="date" name="start_date" value="{{ form.start_date or '' }}"></label>
+    <label>종료일<input type="date" name="end_date" value="{{ form.end_date or '' }}"></label>
+  </div>
+  <div class="actions">
+    <a class="btn" href="{{ url_for('project_list') }}">취소</a>
+    <button class="btn primary">{{ '저장' if project else '만들기' }}</button>
+  </div>
+</form>
+{% endblock %}

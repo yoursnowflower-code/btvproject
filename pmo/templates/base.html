@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% block title %}PMO 일감 트래킹{% endblock %}</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=Sora:wght@600;700&display=swap">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+{% if user %}
+<header class="topbar">
+  <a class="brand" href="{{ url_for('project_list') }}">B tv <b>PMO</b></a>
+  <nav>
+    <a href="{{ url_for('project_list') }}" class="{{ 'on' if request.endpoint.startswith('project') }}">프로젝트</a>
+    <a href="{{ url_for('inbox') }}" class="{{ 'on' if request.endpoint == 'inbox' }}">알림함{% if unread_total %}<span class="badge">{{ unread_total }}</span>{% endif %}</a>
+    <a href="{{ url_for('my_settings') }}" class="{{ 'on' if request.endpoint == 'my_settings' }}">내 설정</a>
+  </nav>
+  <div class="who">{{ user.name }} <small>{{ user.org }}{% if user.is_admin %} · 관리자{% endif %}</small>
+    <a href="{{ url_for('logout') }}">로그아웃</a></div>
+</header>
+{% endif %}
+<main>
+  {% for msg in get_flashed_messages() %}<div class="flash">{{ msg }}</div>{% endfor %}
+  {% block content %}{% endblock %}
+</main>
+</body>
+</html>

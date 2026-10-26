@@ -1,0 +1,48 @@
+/* 색상·글꼴은 기존 B tv 프로젝트 대시보드에서 가져옴 */
+:root{
+  --bg:#F7F7FB; --surface:#FFFFFF; --surface-2:#F1F1F6;
+  --ink:#1C1B29; --ink-soft:#5B596E; --ink-faint:#9694A5;
+  --border:#E3E2EC; --accent:#584BDB; --accent-strong:#443AB0; --accent-soft:#EDEBFA;
+  --danger:#BD3E52; --danger-soft:#F5E3E6;
+  --shadow:0 1px 2px rgba(20,16,40,.04),0 12px 28px -16px rgba(20,16,40,.14);
+  --radius:12px;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 'IBM Plex Sans KR',system-ui,sans-serif}
+a{color:inherit}
+.topbar{display:flex;align-items:center;gap:24px;padding:12px 24px;background:var(--surface);border-bottom:1px solid var(--border);flex-wrap:wrap}
+.brand{font-family:Sora,sans-serif;text-decoration:none;font-size:17px}.brand b{color:var(--accent)}
+.topbar nav{display:flex;gap:4px;flex:1}
+.topbar nav a{text-decoration:none;padding:6px 12px;border-radius:8px;color:var(--ink-soft)}
+.topbar nav a.on{background:var(--accent-soft);color:var(--accent-strong);font-weight:600}
+.who{font-size:14px}.who small{color:var(--ink-faint);margin:0 8px}.who a{color:var(--ink-soft)}
+.badge{display:inline-block;min-width:20px;padding:0 6px;margin-left:6px;border-radius:10px;background:var(--danger);color:#fff;font-size:12px;text-align:center}
+main{max-width:1100px;margin:0 auto;padding:28px 16px}
+.page-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+h1{font-size:22px;margin:0}h2{font-size:17px;margin:0}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.project{position:relative}.project .cover{position:absolute;inset:0;border-radius:var(--radius)}
+.project .row{display:flex;justify-content:space-between;align-items:center}
+.project .actions{position:relative}
+dl{display:grid;grid-template-columns:96px 1fr;gap:4px 8px;margin:14px 0;font-size:14px}
+dt{color:var(--ink-faint)}dd{margin:0}
+.actions{display:flex;gap:8px;justify-content:flex-end}.actions form{margin:0}
+.btn{display:inline-block;padding:8px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface);font:inherit;font-size:14px;cursor:pointer;text-decoration:none}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}.btn.primary:hover{background:var(--accent-strong)}
+.btn.danger{color:var(--danger)}.btn.danger:hover{background:var(--danger-soft)}
+.btn.wide{width:100%;margin-top:16px}
+.muted{color:var(--ink-faint)}
+.empty{text-align:center;color:var(--ink-soft);padding:48px 20px}
+.flash{background:var(--accent-soft);color:var(--accent-strong);padding:10px 14px;border-radius:8px;margin-bottom:16px}
+.error{color:var(--danger);margin:0 0 8px}
+.form{max-width:560px;display:flex;flex-direction:column;gap:14px}
+.form label{display:flex;flex-direction:column;gap:6px;font-weight:500;font-size:14px}
+.form input{font:inherit;padding:9px 11px;border:1px solid var(--border);border-radius:8px}
+.form small{font-weight:400}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.login{max-width:420px;margin:60px auto}.login h1{font-family:Sora,'IBM Plex Sans KR',sans-serif}
+.user-pick{display:flex;flex-direction:column;gap:6px;margin-top:16px}
+.user-pick label{display:flex;gap:10px;align-items:center;padding:10px 12px;border:1px solid var(--border);border-radius:8px;cursor:pointer}
+.user-pick label:has(input:checked){border-color:var(--accent);background:var(--accent-soft)}
+.user-pick span{display:flex;flex-direction:column}.user-pick small{color:var(--ink-faint)}
